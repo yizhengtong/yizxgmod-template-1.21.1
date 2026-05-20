@@ -1,0 +1,31 @@
+# Gradle
+.gradle/
+build/
+!build.gradle.kts
+!build.gradle
+out/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Minecraft dev
+run/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# Native
+*.native
