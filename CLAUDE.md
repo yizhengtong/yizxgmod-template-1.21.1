@@ -24,6 +24,11 @@ NeoForge 1.21.1 **功能模组**，MODID=`yizxgmod`，依赖前置库 `yizmodqzk
 
 ## AI 快速入口
 
-- **前置库 API 知识库**（结构化 JSON，AI 直接读取）：`D:\ZM\yizqzk-docs\docs\llm\knowledge.json`
+- **完整架构蓝图**：`D:\ZM\yizqzk-docs\docs\architecture\blueprint.md`
+- **前置库 API 知识库**（结构化 JSON）：`D:\ZM\yizqzk-docs\docs\llm\knowledge.json`
 - **前置库文档网站**：`http://localhost:8080`
 - **更新文档**：在会话中调用 `/YIZwikl` Skill
+
+## 当前专注区域
+
+**D. 天赋部分** ✅ — 本模组（yizxgmod）是基于前置库天赋框架的示例实现。
