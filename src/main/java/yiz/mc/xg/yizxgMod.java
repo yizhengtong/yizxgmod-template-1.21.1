@@ -28,6 +28,7 @@ import net.minecraft.client.yiz.api.KnockbackImmunityRegistry;
 import net.minecraft.client.yiz.api.NoCollisionRegistry;
 import net.minecraft.client.yiz.api.ProjectileImmunityRegistry;
 import net.minecraft.client.yiz.api.ProjectileReflectionSystem;
+import net.minecraft.client.yiz.api.ShaderManager;
 import net.minecraft.client.yiz.api.UndyingRegistry;
 import net.minecraft.client.yiz.api.PlayerDataAPI;
 
@@ -152,6 +153,22 @@ public class yizxgMod {
         NeoForge.EVENT_BUS.register(StarFlightHandler.class);
 
         // ====== 测试指令 ======
+
+        // /yizxg zsq <编号> — 切换着色器预设
+        net.minecraft.client.yiz.api.YizModQZKAPI.registerCommand(
+                net.minecraft.commands.Commands.literal("yizxg")
+                        .then(net.minecraft.commands.Commands.literal("zsq")
+                                .then(net.minecraft.commands.Commands.argument("preset",
+                                                com.mojang.brigadier.arguments.IntegerArgumentType.integer(1))
+                                        .executes(ctx -> {
+                                            int preset = com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(ctx, "preset");
+                                            String name = "cosmic" + (preset == 1 ? "" : preset);
+                                            ShaderManager.setActivePreset(name);
+                                            ctx.getSource().getPlayerOrException()
+                                                    .sendSystemMessage(Component.literal("§a着色器已切换至预设: " + name));
+                                            return 1;
+                                        })))
+        );
 
         // /yizxgmod agent — 检测 ASM Agent 是否已注入
         net.minecraft.client.yiz.api.YizModQZKAPI.registerSimpleCommand("yizxgmod_agent", ctx -> {
